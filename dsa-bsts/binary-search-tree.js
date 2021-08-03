@@ -181,18 +181,14 @@ class BinarySearchTree {
     }
 
     function _removeNode(node, val) {
-      //base case
       if (!node) return node;
 
-      //val is in the left subtree somewhere
       if (node.val > val) {
         node.left = _removeNode(node.left, val);
-
-      //val is in the right subtree somewhere   
+ 
       } else if (node.val < val) {
         node.right = _removeNode(node.right, val);
 
-      //current node matches val
       } else {
         //case single child or no children
         if (!node.left) {
@@ -200,8 +196,7 @@ class BinarySearchTree {
         } else if (!node.right) {
           return node.left;
         }
-        //case two children. find the inorder successor of the node (the node that is larger than the node we are removing (aka smallest in right subtree).
-
+        //case two children
         //assign inorder successor val to the current node
         node.val = _findMinVal(node.right);
 
@@ -218,12 +213,10 @@ class BinarySearchTree {
    * isBalanced(): Returns true if the BST is balanced, false otherwise. */
 
   isBalanced(node=this.root) {
-    //case empty tree
     if (!node) return true;
 
-    //get and return the height of a subtree
+    //return the height of a subtree
     function _getHeight(node) {
-      //base case
       if (!node) return 0;
       return Math.max(_getHeight(node.left), _getHeight(node.right)) + 1;
     }
@@ -241,7 +234,6 @@ class BinarySearchTree {
    * Otherwise return undefined. */
 
   findSecondHighest(node=this.root) {
-    //case empty tree
     if (!node) return;
 
     //node has a left child but no right child, so we want the largest element in the left subtree.
