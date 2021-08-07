@@ -10,6 +10,7 @@ function insertionSort(arr) {
             //while conditions meet, switch previous position with current position
             [arr[newPosition], arr[newPosition-1]] = [arr[newPosition-1], arr[newPosition]];
             newPosition--;
+            currentElement = arr[newPosition];
         }
     }
     return arr;
