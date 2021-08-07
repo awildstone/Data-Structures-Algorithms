@@ -7,11 +7,10 @@ function insertionSort(arr) {
         
         //find the new position index
         while (newPosition >= 0 && arr[newPosition-1] > currentElement) {
-            arr[newPosition] = arr[newPosition-1];
+            //while conditions meet, switch previous position with current position
+            [arr[newPosition], arr[newPosition-1]] = [arr[newPosition-1], arr[newPosition]];
             newPosition--;
         }
-        //insert into new position
-        arr[newPosition] = currentElement;
     }
     return arr;
 }
